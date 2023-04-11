@@ -31,7 +31,7 @@ if cfg.conversation_summary_mode:
     JSON_SCHEMA = SummaryUtils.add_summary_field_to_json(JSON_SCHEMA, value=cfg.step_summarization_prompt)
 
 
-def fix_and_parse_json(    
+def fix_and_parse_json(
     json_str: str,
     try_to_fix_with_gpt: bool = True
 ) -> Union[str, Dict[Any, Any]]:
@@ -98,7 +98,7 @@ def fix_json(json_str: str, schema: str) -> str:
     result_string = call_ai_function(
         function_string, args, description_string, model=cfg.fast_llm_model
     )
-    if cfg.debug:
+    if cfg.debug_mode:
         print("------------ JSON FIX ATTEMPT ---------------")
         print(f"Original JSON: {json_str}")
         print("-----------")
